@@ -4054,7 +4054,7 @@ JSValue JS_NewTwoByteString(JSContext *ctx, const uint16_t *buf, size_t len)
 {
     if (!len)
         return JS_AtomToString(ctx, JS_ATOM_empty_string);
-    return js_new_string16_len(ctx, buf, len);
+    return js_new_string16(ctx, buf, len);
 }
 
 static JSValue JS_ConcatString3(JSContext *ctx, const char *str1,
