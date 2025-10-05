@@ -4053,7 +4053,7 @@ JSValue JS_NewStringLen(JSContext *ctx, const char *buf, size_t buf_len)
 JSValue JS_NewTwoByteString(JSContext *ctx, const uint16_t *buf, size_t len)
 {
     if (!len)
-        return js_empty_string(ctx->rt);
+        return JS_AtomToString(ctx, JS_ATOM_empty_string);
     return js_new_string16_len(ctx, buf, len);
 }
 
