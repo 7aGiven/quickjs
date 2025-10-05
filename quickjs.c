@@ -4050,6 +4050,13 @@ JSValue JS_NewStringLen(JSContext *ctx, const char *buf, size_t buf_len)
     return JS_EXCEPTION;
 }
 
+JSValue JS_NewTwoByteString(JSContext *ctx, const uint16_t *buf, size_t len)
+{
+    if (!len)
+        return js_empty_string(ctx->rt);
+    return js_new_string16_len(ctx, buf, len);
+}
+
 static JSValue JS_ConcatString3(JSContext *ctx, const char *str1,
                                 JSValue str2, const char *str3)
 {
